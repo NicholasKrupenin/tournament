@@ -1,0 +1,14 @@
+table style="text-align:center"
+  tr
+    th
+      |Name team
+    th
+      |  Division
+    th
+      |  Score
+    = render partial: 'results', collection: @teams, as: :team
+br
+- if @stage.playoff_final?
+  = button_to 'Go start page', root_path, method: :get
+- else
+  = button_to 'Next', generate_results_path, method: :get

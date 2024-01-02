@@ -1,0 +1,6 @@
+= button_to 'Autogenerate team', autogenerate_divisions_path, data: { turbo: false }
+br
+= button_to 'Generate team', new_path, data: { turbo: false }
+br
+- if Team.exists?
+  = button_to 'Go team draw', draw_teams_path, method: :get
