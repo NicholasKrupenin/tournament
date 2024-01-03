@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+    root 'teams#start'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+    get 'draw_teams', to: 'teams#draw_teams'
+    get 'generate_results', to: 'matches#generate_results'
+    get 'show', to: 'matches#show'
+    post 'new', to: 'teams#new'
+    post 'autogenerate_divisions', to: 'teams#autogenerate_divisions'
+    post 'generate_divisions', to: 'teams#generate_divisions'
+    post 'generate_results', to: 'matches#generate_results'
 end

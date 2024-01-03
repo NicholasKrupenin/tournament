@@ -1,0 +1,22 @@
+= form_with model: Team.new, url: generate_divisions_path, method: :post, local: true do |form|
+  | TEAM A
+  br
+  - @team_a.each.with_index do |team, index|
+    = form.fields_for "teams_attributes[#{index}]", team do |team_fields|
+      = team_fields.text_field :name
+      = team_fields.hidden_field :division, value: 'A'
+    br
+  | TEAM B
+  br
+  - @team_b.each.with_index(8) do |team, index|
+    = form.fields_for "teams_attributes[#{index}]", team do |team_fields|
+      = team_fields.text_field :name
+      = team_fields.hidden_field :division, value: 'B'
+    br
+  = form.submit "Create Teams"
+br
+- if Team.exists?
+  = button_to 'Go team draw', draw_teams_path, method: :get
+br
+= button_to 'Go start page', root_path, method: :get
+

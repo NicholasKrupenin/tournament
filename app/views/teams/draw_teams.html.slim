@@ -1,0 +1,9 @@
+table style="text-align:center"
+  tr
+    th
+      |Name team
+    th
+      |  Division
+    = render partial: 'team', collection: @teams
+br
+= button_to 'Start play', generate_results_path, method: :get
