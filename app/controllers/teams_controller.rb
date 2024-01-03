@@ -3,10 +3,7 @@ class TeamsController < ApplicationController
 
   def new
     @team_a, @team_b = Array.new(16) { Team.new }.each_slice(8).to_a
-
-    if Team.exists?
-      flash.now[:message] = 'The team division is already established !!!'
-    end
+    flash.now[:message] = 'The team division is already established !!!' if Team.exists?
   end
 
   def draw_teams
@@ -24,6 +21,6 @@ class TeamsController < ApplicationController
   end
 
   def team_params
-    params.require(:team).permit(teams_attributes: [:name, :division])
+    params.require(:team).permit(teams_attributes: %i[name division])
   end
 end

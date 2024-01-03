@@ -4,9 +4,9 @@ class MatchesController < ApplicationController
     Game.create(match)
     redirect_to :show, notice: "Result for #{match[:stage].humanize}"
   end
+
   def show
     @teams = Match.winning_teams
     @stage = Match.last
   end
 end
-
