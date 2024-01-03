@@ -34,7 +34,3 @@ class Game
     Match.record_result(winner, defeat, stage)
   end
 end
-
-
-
-
